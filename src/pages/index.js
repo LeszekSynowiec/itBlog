@@ -1,22 +1,47 @@
 import React from "react"
 import { Link } from "gatsby"
+import styled, { ThemeProvider } from "styled-components"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import GlobalStyle from "../assets/styles/GlobalStyles"
+import { theme } from "../assets/styles/theme"
+
+import Instagram from "../assets/icons/instagram.inline.svg"
+import Twitter from '../assets/icons/twitter.inline.svg'
+import Articles from '../assets/icons/articles.inline.svg'
+
+const MainWrapper = styled.div`
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    padding-top: 140px;
+    font-size: 120px;
+  }
+`
+
+const LinkWrapper = styled.div`
+  display: flex;
+  padding-top: 50px;
+  width: 370px;
+  justify-content: space-between;
+`
 
 const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
+  <div>
+    <ThemeProvider theme={theme}>
+      <MainWrapper>
+        <GlobalStyle />
+        <h1>iT Blog.</h1>
+        <LinkWrapper>
+          <Articles />
+          <Instagram />
+          <Twitter />
+        </LinkWrapper>
+      </MainWrapper>
+    </ThemeProvider>
+  </div>
 )
 
 export default IndexPage
